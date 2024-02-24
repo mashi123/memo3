@@ -12,3 +12,7 @@
     const val = sha512("<ハッシュ化したい文字列>").toString(Base64);
     console.log(val);
     ```
+- 参考
+    - https://www.npmjs.com/package/crypto-js
+    - https://stackoverflow.com/questions/11889329/word-array-to-string
+    - https://stackoverflow.com/questions/47766755/using-crypto-js-in-react 
