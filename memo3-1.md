@@ -1,3 +1,14 @@
+### reactの`.env`の優先順位
+以下より抜粋。
+- https://coders-shelf.com/create-react-app-env-variables/
+    ```
+    Files on the left have more priority than files on the right:
+    
+    npm start: .env.development.local, .env.local, .env.development, .env
+    npm run build: .env.production.local, .env.local, .env.production, .env
+    npm test: .env.test.local, .env.test, .env (note .env.local is missing)
+    ```
+
 ### reactでハッシュ値を使用
 `crypto-js`を使用して、任意の文字列のsha512等のハッシュ値を得ることができる。App.js等のjsファイルで使う例を以下に示す。
 
