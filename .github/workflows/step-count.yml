@@ -19,5 +19,11 @@ jobs:
     - name: Count Lines of Code (cloc)
       uses: djdefi/cloc-action@6
       with:
-        options: --by-file --csv
-        #options: --by-file --csv --report-file=cloc.md
+        #options: --by-file --csv
+        options: --by-file --csv --report-file=cloc.md
+
+    - name: Archive output file
+      uses: actions/upload-artifact@v4
+      with:
+        name: cloc-report-file
+        path: cloc.md
