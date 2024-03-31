@@ -19,4 +19,5 @@ jobs:
     - name: Count Lines of Code (cloc)
       uses: djdefi/cloc-action@6
       with:
-        options: --by-file-by-lang --md --report-file=cloc.md
+        options: --by-file --csv
+        #options: --by-file --csv --report-file=cloc.md
