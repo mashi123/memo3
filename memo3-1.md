@@ -30,47 +30,47 @@
 
 ### javascriptのフォーマッタ(prettier)
 
-    - https://prettier.io/
-    - インストール (ついでにlinterも)
+- https://prettier.io/
+- インストール (ついでにlinterも)
 
-    ```
-    npm init @eslint/config
-    npm install --save-dev --save-exact prettier
-    npm install --save-dev eslint-config-prettier
-    ```
+  ```
+  npm init @eslint/config
+  npm install --save-dev --save-exact prettier
+  npm install --save-dev eslint-config-prettier
+  ```
 
-    - 使用例
-    ```
-    (チェックのみ)
-    node_modules\.bin\prettier src.bk --check
+- 使用例
+  ```
+  (チェックのみ)
+  node_modules\.bin\prettier src.bk --check
 
-    (ファイル修正あり)
-    node_modules\.bin\prettier src.bk --write
-    ```
+  (ファイル修正あり)
+  node_modules\.bin\prettier src.bk --write
+  ```
 
-    - 行当たり文字数オプション
-    ```
-      --print-width <int>      The line length where Prettier will try wrap.
-                               Defaults to 80.
-    ```
+- 行当たり文字数オプション
+  ```
+    --print-width <int>      The line length where Prettier will try wrap.
+                             Defaults to 80.
+  ```
 
 
 ### pythonのフォーマッタ(black)
 
-    - https://github.com/psf/black
+- https://github.com/psf/black
 
-    - インストール
-    ```
-    pip install black
-    ```
+- インストール
+  ```
+  pip install black
+  ```
 
-    - 使用例
-    ```
-    black --check .
-    ```
+- 使用例
+  ```
+  black --check .
+  ```
 
-    - 行当たり文字数オプション
-    ```
-      -l, --line-length INTEGER       How many characters per line to allow.
-                                      [default: 88]
-    ```
+- 行当たり文字数オプション
+  ```
+    -l, --line-length INTEGER       How many characters per line to allow.
+                                    [default: 88]
+  ```
