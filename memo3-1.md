@@ -42,10 +42,10 @@
 - 使用例
   ```
   (チェックのみ)
-  node_modules\.bin\prettier src.bk --check
+  node_modules\.bin\prettier src --check
 
   (ファイル修正あり)
-  node_modules\.bin\prettier src.bk --write
+  node_modules\.bin\prettier src --write
   ```
 
 - 行当たり文字数オプション
@@ -74,3 +74,27 @@
     -l, --line-length INTEGER       How many characters per line to allow.
                                     [default: 88]
   ```
+
+### VSCodeにprettierインストールと設定
+https://zenn.dev/k_kazukiiiiii/articles/670ebae0005872
+- VSCodeを起動して`Prettier -Code formatter`をインストールする。
+- VSCodeのsettingを開く (ctrl, でも開ける)
+    - `default formatter`で設定を検索
+    - `Editor: Default Formatter`で`Prettier Code Formatter`を選択
+
+- `save`で設定を検索
+    - `Text Editor`の`Formatting`のところで`Format On Save`にチェックをいれる
+
+### VSCodeにblackのインストールと設定
+- `Black Formatter`をインストール
+
+### prettierとblackをつかるようにsettings.jsonを書き換える
+```
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  }
+}
+```
