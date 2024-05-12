@@ -53,7 +53,12 @@
     --print-width <int>      The line length where Prettier will try wrap.
                              Defaults to 80.
   ```
-
+  
+- カンマの設定
+```
+  --trailing-comma es5   ：3.0.0以前のデフォルト 
+  --trailing-comma all   ：3.0.0以降のデフォルト 
+```
 
 ### pythonのフォーマッタ(black)
 
@@ -97,4 +102,16 @@ https://zenn.dev/k_kazukiiiiii/articles/670ebae0005872
     "editor.defaultFormatter": "ms-python.black-formatter"
   }
 }
+```
+prettier 3.0のデフォルト設定に合わせる(カンマの設定が変更)
+```
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "prettier.trailingComma": "all"
+}
+
 ```
