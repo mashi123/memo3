@@ -53,7 +53,12 @@
     --print-width <int>      The line length where Prettier will try wrap.
                              Defaults to 80.
   ```
-
+  
+- カンマの設定
+```
+  --trailing-comma es5   ：3.0.0以前のデフォルト 
+  --trailing-comma all   ：3.0.0以降のデフォルト 
+```
 
 ### pythonのフォーマッタ(black)
 
@@ -75,6 +80,24 @@
                                     [default: 88]
   ```
 
+### pythonのフォーマッタ(autopep8)
+- https://pypi.org/project/autopep8/
+
+- インストール
+```
+$ pip install --upgrade autopep8
+```
+
+- 使用例(チェックのみ)
+```
+autopep8.exe . -r --diff
+```
+
+- 使用例(ファイル置換)
+```
+autopep8.exe . -r --in-place
+```
+
 ### VSCodeにprettierインストールと設定
 https://zenn.dev/k_kazukiiiiii/articles/670ebae0005872
 - VSCodeを起動して`Prettier -Code formatter`をインストールする。
@@ -88,6 +111,9 @@ https://zenn.dev/k_kazukiiiiii/articles/670ebae0005872
 ### VSCodeにblackのインストールと設定
 - `Black Formatter`をインストール
 
+### VSCodeにautopep8のインストールと設定
+- `autopep8`をインストール
+
 ### prettierとblackをつかるようにsettings.jsonを書き換える
 ```
 {
@@ -97,4 +123,29 @@ https://zenn.dev/k_kazukiiiiii/articles/670ebae0005872
     "editor.defaultFormatter": "ms-python.black-formatter"
   }
 }
+```
+
+prettier 3.0のデフォルト設定に合わせる(カンマの設定が変更)
+```
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "prettier.trailingComma": "all"
+}
+```
+
+### prettierとautopep8をつかるようにsettings.jsonを書き換える
+```
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8"
+  },
+  "prettier.trailingComma": "all"
+}
+
 ```
