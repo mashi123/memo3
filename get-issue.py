@@ -1,11 +1,13 @@
 # ライブラリのインポート
+import sys
 import requests
 import json
 import re
+import csv
 from datetime import datetime
 from dateutil import tz
 
-token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+token = "xxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # token = os.environ['GITHUB_TOKEN']
 
 # リポジトリの情報
@@ -18,7 +20,7 @@ url = f"https://api.github.com/repos/{organization}/{repository}/issues"
 # parameters
 params = "?state=all&per_page=100&page=1"
 
-# ヘッダーの設定
+# request header
 headers = {"Authorization": f"token {token}"}
 
 
@@ -34,6 +36,21 @@ def tz_trans(z_str):
     return local_tm.strftime("%Y-%m-%d %H:%M:%S")
 
 
+def to_csv(headlist, rows):
+    writer = csv.writer(sys.stdout)
+
+    # header
+    writer.writerow(headlist)
+
+    # columns
+    for row in rows:
+        col = []
+        for head in headlist:
+            col.append(row[head] if head in row else "")
+
+        writer.writerow(col)
+
+
 def main():
     # リクエストの実行
     response = requests.get(url + params, headers=headers)
@@ -46,9 +63,9 @@ def main():
         # Issueの情報を表示
         heads = set()
         rows = []
-        row = {}
 
         for issue in data:
+            row = {}
             row["1.title"] = issue["title"]
             row["2.state"] = issue["state"]
 
@@ -70,8 +87,8 @@ def main():
                     row["A.工程"] = lname
                 elif "bug" in lname:
                     row["B.bug"] = "○"
-                elif "Rコード" in lname:
-                    row["Rコード"] = lname
+                elif "コード" in lname:
+                    row["コード"] = lname
                 elif "動機" in lname:
                     row["動機"] = lname
                 elif "機能:" in lname:
@@ -81,7 +98,7 @@ def main():
                 ):
                     row["c:" + lname] = "○"
                 else:
-                    print(lname)
+                    # print(lname)
                     labels.append(lname)
                     row["othre_labels"] = "&".join(labels)
 
@@ -91,13 +108,8 @@ def main():
 
         # output
         headlist = sorted(list(heads))
-        print(",".join(headlist))
-        for row in rows:
-            for head in headlist:
-                val = row[head] if row[head] else ""
-                print(val + ",", end="")
+        to_csv(headlist, rows)
 
-            print("")
     else:
         # エラー処理
         print(f"エラーが発生しました: {response.status_code}")
