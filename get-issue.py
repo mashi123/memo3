@@ -83,18 +83,12 @@ def main():
             labels = []
             for label in issue["labels"]:
                 lname = label["name"]
-                if "工程" in lname:
-                    row["A.工程"] = lname
                 elif "bug" in lname:
                     row["B.bug"] = "○"
-                elif "コード" in lname:
-                    row["コード"] = lname
-                elif "動機" in lname:
-                    row["動機"] = lname
-                elif "機能:" in lname:
+                elif "func:" in lname:
                     row[lname] = "○"
                 elif re.search(
-                    "(frontend\(view\)|frontend\(form\)|backend|other)", lname
+                    "(view|api)", lname
                 ):
                     row["c:" + lname] = "○"
                 else:
