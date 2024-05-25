@@ -149,3 +149,25 @@ prettier 3.0のデフォルト設定に合わせる(カンマの設定が変更)
 }
 
 ```
+
+
+### Bearerによるコードのセキュリティチェック
+- 公式サイト
+    - https://github.com/Bearer/bearer
+    - https://docs.bearer.com/reference/commands/#bearer_scan
+
+- インストール
+    ```
+    curl -LO https://github.com/Bearer/bearer/releases/download/v1.43.6/bearer_1.43.6_linux_amd64.tar.gz
+    tar xvfz bearer_1.43.6_linux_amd64.tar.gz
+    ```
+
+- SAST (Static Application Security Testing) のチェック
+    ```
+    bearer scan <target dir> --scanner=sast -f html --output <html filename>
+    ```
+
+- シークレット文字列の埋め込みのチェック
+    ```
+    bearer scan <target dir> --scanner=secrets -f html --output <html filename>
+    ```
