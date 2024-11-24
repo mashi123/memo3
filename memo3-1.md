@@ -171,3 +171,9 @@ prettier 3.0のデフォルト設定に合わせる(カンマの設定が変更)
     ```
     bearer scan <target dir> --scanner=secrets -f html --output <html filename>
     ```
+
+### 絵文字・アイコン関連
+- https://en.wikipedia.org/wiki/Geometric_Shapes_(Unicode_block)
+- https://ja.wikipedia.org/wiki/Unicode%E3%81%AEEmoji%E3%81%AE%E4%B8%80%E8%A6%A7
+- https://fonts.google.com/icons
+- https://mui.com/material-ui/material-icons/
